@@ -1,0 +1,883 @@
+:root {
+  --beige: #F2E7D5;
+  --marron: #4A3026;
+  --marron-suave: #7A5C4D;
+  --bordo: #6B2638;
+  --bordo-oscuro: #4A1B29;
+  --dorado: #D0AE70;
+  --marfil: #FFFAF1;
+  --superficie: #FFFAF1;
+  --linea: rgba(208, 174, 112, 0.58);
+  --sombra: rgba(74, 48, 38, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--beige);
+  color: var(--marron);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.encabezado,
+main,
+.pie {
+  width: min(1120px, calc(100% - 3rem));
+}
+
+.encabezado {
+  width: 100%;
+  min-height: 82px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0.8rem max(1.5rem, calc((100% - 1120px) / 2));
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  align-content: center;
+  column-gap: 2rem;
+  row-gap: 0.15rem;
+  background: #F2E7D5;
+  color: var(--marron);
+}
+
+.marca,
+.marca a,
+.logo-cafe,
+.logo-letras {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-style: normal;
+  font-optical-sizing: auto;
+}
+
+.marca {
+  margin: 0;
+  justify-self: start;
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 1.7rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.eslogan-encabezado {
+  grid-column: 1;
+  grid-row: 2;
+  margin: 0;
+  padding-left: clamp(2.1rem, 4vw, 2.45rem);
+  color: var(--marron-suave);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.72rem;
+  line-height: 1.3;
+}
+
+.marca-icono {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  color: #D0AE70;
+}
+
+.marca-icono svg {
+  width: 1.15em;
+  height: 1.15em;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.25;
+}
+
+.marca a {
+  color: var(--marron);
+  text-decoration: none;
+}
+
+.logo-cafe {
+  font-size: inherit;
+  text-transform: none;
+}
+
+.logo-letras {
+  font-size: inherit;
+  text-transform: none;
+}
+
+.navegacion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 2.2vw, 2rem);
+}
+
+.encabezado-acciones {
+  min-width: 0;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.navegacion a {
+  color: var(--marron);
+  font-size: 0.67rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.navegacion a:hover,
+.navegacion a:focus-visible {
+  color: var(--dorado);
+}
+
+main {
+  width: 100%;
+  flex: 1;
+}
+
+.eyebrow,
+.etiqueta,
+.numero {
+  margin: 0 0 0.75rem;
+  color: var(--bordo);
+  font-size: 0.68rem;
+  font-weight: bold;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+.texto-frase {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: normal;
+}
+
+.portada {
+  position: relative;
+  min-height: clamp(540px, 72vh, 700px);
+  width: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background-image: url("TAZA.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.escena-cafe {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+
+.portada::before {
+  position: absolute;
+  inset: 0;
+  background: rgba(42, 26, 21, 0.42);
+  content: "";
+}
+
+.portada-contenido {
+  position: relative;
+  z-index: 2;
+  width: min(760px, calc(100% - 2rem));
+  padding: 4rem 1rem;
+  color: var(--marfil);
+  text-align: center;
+}
+
+.portada-contenido .eyebrow {
+  color: var(--dorado);
+}
+
+.portada h2 {
+  margin: 0 0 1rem;
+  min-height: 1em;
+  color: var(--marfil);
+  font-size: clamp(3rem, 7vw, 6.2rem);
+  letter-spacing: -0.06em;
+  line-height: 0.95;
+}
+
+.portada h2 .cursor-escritura {
+  display: inline-block;
+  width: 1px;
+  height: 0.85em;
+  margin-left: 0.12em;
+  background: currentColor;
+  vertical-align: -0.05em;
+}
+
+.eslogan-hero {
+  margin: 0 auto 2rem;
+  color: var(--marfil);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.55;
+}
+
+.boton-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.9rem 1.5rem;
+  border: 1px solid var(--marfil);
+  border-radius: 999px;
+  background: var(--marfil);
+  color: var(--marron);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.boton-hero:hover,
+.boton-hero:focus-visible {
+  background: var(--marfil);
+  color: var(--marron);
+  transform: translateY(-2px);
+}
+
+.boton-hero span {
+  font-size: 1.2rem;
+  color: inherit;
+}
+
+.modo-oscuro .boton-hero,
+.modo-oscuro .boton-hero:hover,
+.modo-oscuro .boton-hero:focus-visible {
+  background: var(--marfil);
+  color: #4A3026;
+}
+
+.accesos-rapidos {
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  background: #F2E7D5;
+  border: 0;
+  border-bottom: 1px solid #D0AE70;
+  box-shadow: none;
+}
+
+.acceso-rapido {
+  min-height: 0;
+  padding: 0.45rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: #F2E7D5;
+  color: var(--marron);
+  text-align: center;
+}
+
+.acceso-rapido:first-child {
+  border-left: 0;
+}
+
+.acceso-rapido + .acceso-rapido {
+  border-left: 1px solid var(--dorado);
+}
+
+.accesos-rapidos svg {
+  width: 1.65rem;
+  height: 1.65rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.25;
+}
+
+.accesos-rapidos .material-symbols-outlined {
+  width: 1.65rem;
+  height: 1.65rem;
+  color: currentColor;
+  font-size: 1.65rem;
+  line-height: 1;
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.accesos-rapidos strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.96rem;
+  font-weight: normal;
+}
+
+.accesos-rapidos span {
+  color: var(--marron-suave);
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.seccion-recomendaciones,
+.seccion-frase {
+  width: min(1120px, calc(100% - 3rem));
+  margin: 0 auto;
+}
+
+.seccion-recomendaciones {
+  padding: 4.5rem 0;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) repeat(2, minmax(0, 1fr));
+  grid-template-areas: "introduccion medialuna chipa";
+  align-items: start;
+  gap: clamp(1.25rem, 2.5vw, 3rem);
+  border-bottom: 1px solid var(--linea);
+}
+
+.titulo-seccion {
+  min-width: 0;
+  grid-area: introduccion;
+}
+
+@media (min-width: 901px) {
+  .titulo-seccion {
+    transform: translateX(-40px);
+  }
+}
+
+.recomendacion:first-of-type {
+  grid-area: medialuna;
+}
+
+.recomendacion:last-of-type {
+  grid-area: chipa;
+}
+
+.titulo-seccion h2,
+.introduccion-frase h2 {
+  max-width: 290px;
+  margin: 0 0 1rem;
+  color: var(--marron);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  letter-spacing: -0.06em;
+  line-height: 0.98;
+}
+
+.titulo-seccion > p:last-child,
+.introduccion-frase > p:last-child {
+  max-width: 270px;
+  color: var(--marron-suave);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.recomendacion {
+  min-width: 0;
+  width: 100%;
+}
+
+.recomendacion-imagen {
+  margin: 0 0 1.15rem;
+  border: 1px solid var(--dorado);
+  background: var(--marfil);
+  overflow: hidden;
+}
+
+.recomendacion-imagen img {
+  display: block;
+  width: 100%;
+  height: 215px;
+  object-fit: cover;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .recomendacion-imagen img {
+    transition: transform 0.4s ease;
+  }
+
+  .recomendacion-imagen:hover img {
+    transform: scale(1.04);
+  }
+}
+
+.recomendacion-texto {
+  padding: 0 0.3rem;
+}
+
+.recomendacion-texto .numero {
+  margin-bottom: 0.5rem;
+}
+
+.recomendacion h3 {
+  margin: 0 0 0.55rem;
+  color: var(--marron);
+  font-size: 1.5rem;
+}
+
+.recomendacion-texto p:last-child {
+  margin: 0;
+  color: var(--marron-suave);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.seccion-frase {
+  padding: 4.5rem 0 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2.5rem, 6vw, 6rem);
+}
+
+.introduccion-frase {
+  width: min(310px, 100%);
+  flex: 0 1 310px;
+}
+
+.tarjeta {
+  width: min(77vw, 820px);
+  flex: 0 1 820px;
+  margin-inline: auto;
+  padding: clamp(0.75rem, 1.4vw, 1.25rem) clamp(1rem, 2.3vw, 2.25rem);
+  border: 1px solid var(--dorado);
+  border-radius: 22px;
+  background: var(--superficie);
+  box-shadow: 0 18px 38px var(--sombra);
+  text-align: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.tarjeta .etiqueta {
+  margin-bottom: 0.6rem;
+}
+
+.texto-frase {
+  margin: 0 auto 0.6rem;
+  min-height: 10.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--marron);
+  font-size: clamp(1.35rem, 3vw, 2.25rem);
+  font-style: italic;
+  letter-spacing: -0.04em;
+  line-height: 1.12;
+}
+
+.autor-frase {
+  margin: 0 0 0.5rem;
+  min-height: 1.5rem;
+  color: var(--marron-suave);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+button {
+  padding: 0.85rem 1.1rem;
+  border: 2px solid var(--bordo);
+  border-radius: 999px;
+  background: var(--bordo);
+  color: var(--marfil);
+  font: inherit;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+button:hover,
+button:focus-visible {
+  border-color: var(--bordo-oscuro);
+  background: var(--bordo-oscuro);
+  transform: translateY(-2px);
+}
+
+button:focus-visible {
+  outline: 3px solid rgba(208, 174, 112, 0.55);
+  outline-offset: 3px;
+}
+
+.navegacion .boton-tema {
+  width: auto;
+  min-width: 0;
+  min-height: 2.25rem;
+  height: auto;
+  padding: 0.55rem 0.8rem;
+  flex: 0 1 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  white-space: nowrap;
+  border: 1px solid var(--dorado);
+  background: var(--marron);
+  color: var(--dorado);
+  box-shadow: none;
+}
+
+.navegacion .boton-tema:hover,
+.navegacion .boton-tema:focus-visible {
+  border-color: var(--marfil);
+  background: var(--bordo);
+  color: var(--marfil);
+}
+
+.icono-tema {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.icono-sol {
+  display: none;
+}
+
+.texto-boton-tema {
+  font-size: 0.72rem;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.texto-oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.pie {
+  padding: 1rem 0;
+  border-top: 1px solid var(--dorado);
+  color: var(--marron-suave);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.85rem;
+}
+
+.pie p {
+  margin: 0;
+}
+
+.modo-oscuro {
+  --beige: #2C211C;
+  --marron: #F2E7D5;
+  --marron-suave: #D9C5AA;
+  --bordo: #B66772;
+  --bordo-oscuro: #D28A91;
+  --dorado: #D0AE70;
+  --marfil: #FFFAF1;
+  --superficie: #3B2B25;
+  --linea: rgba(208, 174, 112, 0.55);
+  --sombra: rgba(0, 0, 0, 0.38);
+}
+
+.modo-oscuro .encabezado {
+  background: #4A3026;
+}
+
+.modo-oscuro .marca a,
+.modo-oscuro .navegacion a {
+  color: var(--marfil);
+}
+
+.modo-oscuro .icono-luna {
+  display: none;
+}
+
+.modo-oscuro .icono-sol {
+  display: block;
+}
+
+.modo-oscuro .accesos-rapidos {
+  background: #4A3026;
+}
+
+.modo-oscuro .acceso-rapido {
+  background: #4A3026;
+}
+
+@media (max-width: 900px) {
+  .navegacion {
+    gap: 0.85rem;
+  }
+
+  .navegacion a {
+    font-size: 0.61rem;
+  }
+
+  .seccion-recomendaciones {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "introduccion introduccion"
+      "medialuna chipa";
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    justify-content: flex-start;
+  }
+
+  .encabezado,
+  main,
+  .pie,
+  .seccion-recomendaciones,
+  .seccion-frase {
+    width: min(calc(100% - 2rem), 1120px);
+  }
+
+  .encabezado {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1rem;
+  }
+
+  .marca {
+    flex: 1 1 100%;
+    order: 1;
+  }
+
+  .eslogan-encabezado {
+    width: 100%;
+    flex: 1 1 100%;
+    order: 2;
+    font-size: 0.68rem;
+    line-height: 1.35;
+  }
+
+  .encabezado-acciones {
+    width: 100%;
+    flex: 1 1 100%;
+    order: 3;
+  }
+
+  .navegacion {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.65rem;
+    overflow: visible;
+  }
+
+  .navegacion .boton-tema {
+    max-width: 100%;
+    padding: 0.45rem 0.65rem;
+  }
+
+  .portada {
+    min-height: 540px;
+  }
+
+  .portada-contenido {
+    padding: 3rem 1rem;
+  }
+
+  .portada h2 {
+    font-size: clamp(2.9rem, 13vw, 5rem);
+  }
+
+  .accesos-rapidos {
+    width: 100%;
+  }
+
+  .seccion-recomendaciones {
+    width: min(calc(100% - 2rem), 1120px);
+  }
+
+  .acceso-rapido {
+    min-height: 0;
+  }
+
+  .seccion-recomendaciones {
+    padding: 3.5rem 0 4rem;
+  }
+
+  .titulo-seccion {
+    grid-column: auto;
+  }
+
+  .seccion-frase {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3.5rem 0 4rem;
+  }
+
+  .introduccion-frase {
+    width: 100%;
+  }
+
+  .introduccion-frase h2 {
+    max-width: 420px;
+  }
+
+  .tarjeta {
+    align-self: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .escena-cafe {
+    width: 100%;
+    height: 100%;
+  }
+
+  .encabezado {
+    padding: 0.65rem 0.75rem;
+    gap: 0.5rem 0.75rem;
+  }
+
+  .marca {
+    font-size: 1.45rem;
+  }
+
+  .navegacion {
+    gap: 0.55rem;
+  }
+
+  .navegacion a {
+    font-size: 0.58rem;
+    white-space: nowrap;
+  }
+
+  .portada {
+    min-height: 470px;
+    background-position: center center;
+  }
+
+  .portada h2 {
+    font-size: clamp(2.4rem, 13vw, 3.7rem);
+    min-height: 1.96em;
+    line-height: 0.98;
+  }
+
+  .eslogan-hero {
+    max-width: 21rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.94rem;
+  }
+
+  .portada-contenido {
+    width: min(100% - 1.5rem, 30rem);
+    padding: 2.5rem 0.75rem;
+  }
+
+  .acceso-rapido {
+    min-height: 0;
+  }
+
+  .seccion-recomendaciones {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "introduccion"
+      "medialuna"
+      "chipa";
+    gap: 2.5rem;
+  }
+
+  .recomendacion-imagen img {
+    height: clamp(190px, 55vw, 215px);
+  }
+
+  .recomendacion h3 {
+    font-size: 1.35rem;
+  }
+
+  .seccion-frase {
+    justify-content: flex-start;
+    gap: 1.75rem;
+    padding: 2rem 0 2.5rem;
+  }
+
+  .introduccion-frase {
+    flex: 0 0 auto;
+  }
+
+  .tarjeta {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    flex: 0 0 auto;
+    padding: 1rem 0.75rem;
+  }
+
+  .tarjeta .etiqueta {
+    margin-bottom: 1rem;
+  }
+
+  .texto-frase {
+    min-height: 12rem;
+    font-size: 1.6rem;
+  }
+
+  .autor-frase {
+    margin-bottom: 0.6rem;
+  }
+
+  .acciones {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .acciones button:first-child {
+    width: 100%;
+  }
+
+  .texto-boton-tema {
+    font-size: 0.64rem;
+  }
+
+  .navegacion .icono-tema {
+    width: 0.9rem;
+    height: 0.9rem;
+  }
+}
+
