@@ -27,14 +27,12 @@ const botonNuevaFrase = document.getElementById("btn-nueva-frase");
 const botonCambiarTema = document.getElementById("btn-cambiar-tema");
 const tituloPortada = document.getElementById("titulo-portada");
 
-let indiceFrase = 0;
-
 function mostrarNuevaFrase() {
-  const fraseSeleccionada = frasesLiterarias[indiceFrase];
+  const indiceAleatorio = Math.floor(Math.random() * frasesLiterarias.length);
+  const fraseSeleccionada = frasesLiterarias[indiceAleatorio];
 
   textoFrase.textContent = `“${fraseSeleccionada.frase}”`;
   autorFrase.textContent = `— ${fraseSeleccionada.autor}`;
-  indiceFrase = (indiceFrase + 1) % frasesLiterarias.length;
 }
 
 botonNuevaFrase.addEventListener("click", mostrarNuevaFrase);
